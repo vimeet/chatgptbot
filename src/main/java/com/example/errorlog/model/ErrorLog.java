@@ -1,24 +1,13 @@
 package com.example.errorlog.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
 public class ErrorLog {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String exception;
     private Long timestamp;
     private String env;
     private String pod;
-
-    public ErrorLog() {
-    }
 
     public ErrorLog(String exception, Long timestamp, String env, String pod) {
         this.exception = exception;

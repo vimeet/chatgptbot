@@ -1,30 +1,43 @@
 package com.example.errorlog.service;
 
 import com.example.errorlog.model.ErrorLog;
-import com.example.errorlog.repository.ErrorLogRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ErrorLogService {
 
-    private final ErrorLogRepository errorLogRepository;
+    private static List<ErrorLog> errorLogRepository = new ArrayList<>();
 
-    public ErrorLogService(ErrorLogRepository errorLogRepository) {
-        this.errorLogRepository = errorLogRepository;
+    public ErrorLogService() {
+
     }
 
     public ErrorLog saveErrorLog(ErrorLog errorLog) {
-        return errorLogRepository.save(errorLog);
+        errorLogRepository.add(errorLog);
+        return errorLog;
     }
 
     public List<ErrorLog> getAllLogsBetweenTimestamps(Long start, Long end) {
-        return errorLogRepository.findByTimestampBetween(start, end);
+        List<ErrorLog> foundErrorLogs = new ArrayList<>();
+        for (ErrorLog errorLog : errorLogRepository) {
+            if(errorLog.getTimestamp() >= start && errorLog.getTimestamp() <= end) {
+                foundErrorLogs.add(errorLog);
+            }
+        }
+        return foundErrorLogs;
     }
 
     public List<ErrorLog> getLogsByExceptionMessage(String message) {
-        return errorLogRepository.findByExceptionContainingIgnoreCase(message);
+        List<ErrorLog> foundErrorLogs = new ArrayList<>();
+        for (ErrorLog errorLog : errorLogRepository) {
+            if(errorLog.getException().contains(message)) {
+                foundErrorLogs.add(errorLog);
+            }
+        }
+        return foundErrorLogs;
     }
 
     // Additional methods if needed
