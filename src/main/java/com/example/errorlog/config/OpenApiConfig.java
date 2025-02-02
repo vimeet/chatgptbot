@@ -24,15 +24,15 @@ public class OpenApiConfig {
                         .version("1.0")
                         .description("API documentation for the Error Log Service")
                         .license(new License().name("Apache 2.0").url("https://www.apache.org/licenses/LICENSE-2.0"))
-                )
+                );
                 // Optionally define servers
-                .servers(List.of(
+                /*.servers(List.of(
                         new Server().url("https://api.example.com").description("Production Server"),
                         new Server().url("https://staging-api.example.com").description("Staging Server")
                 ))
                 // Optional link to external docs
                 .externalDocs(new ExternalDocumentation()
                         .description("Project Wiki")
-                        .url("https://example.com/wiki"));
+                        .url("https://example.com/wiki"));*/
     }
 }
