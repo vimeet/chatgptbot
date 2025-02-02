@@ -1,0 +1,66 @@
+### Maven Target Directory ###
+/target/
+!/src/main/resources/static/
+!/src/main/resources/templates/
+
+### Logs ###
+logs/
+*.log
+*.out
+*.log.*
+
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.ipr
+*.iws
+/.idea/workspace.xml
+/.idea/modules.xml
+/.idea/libraries/
+.idea/shelf/
+.idea/compiler.xml
+.idea/sonarlint/
+
+### Eclipse ###
+.classpath
+.project
+.settings/
+
+### VS Code ###
+.vscode/
+
+### OS-Specific ###
+.DS_Store
+Thumbs.db
+desktop.ini
+
+### Build and Dependency Files ###
+/bin/
+/out/
+/build/
+/mvnw
+/mvnw.cmd
+/.mvn/
+
+### Application-Specific ###
+/.env
+.env.local
+.env.development
+.env.test
+.env.production
+*.swp
+*.swo
+
+### Spring Boot Config ###
+/application.properties
+/application.yml
+/secrets.yml
+
+### Docker ###
+/docker-compose.yml
+/docker-compose.override.yml
+/.docker/
+
+### Misc ###
+/*.war
+/*.jar
